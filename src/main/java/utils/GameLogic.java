@@ -11,10 +11,17 @@ public class GameLogic {
         return Integer.parseInt(firstWord);
     }
 
-    static int chooseDifficultyLogic() {
-        int difficulty = intify(input.nextLine());
-        while(difficulty < 0 && difficulty > 3) {
-            difficulty = input.nextInt();
+    public static int chooseDifficultyLogic() {
+        int difficulty = 1;
+        boolean acceptable = false;
+        while(!acceptable) {
+            try {
+                difficulty = intify(input.nextLine());
+                if(difficulty > 0 && difficulty < 4)
+                    acceptable = true;
+                else
+                    System.out.println("Please choose valid option");
+            } catch (NumberFormatException _) {System.out.println("Please choose valid option");}
         }
         return difficulty;
     }

@@ -13,7 +13,7 @@ public class PrintOutput {
     }
 
     static int  chooseDifficulty() {
-        System.out.println("Enter your choise: ");
+        System.out.println("Enter your choice: ");
         return GameLogic.chooseDifficultyLogic();
     }
 }

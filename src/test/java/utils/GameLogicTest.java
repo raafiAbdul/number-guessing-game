@@ -17,4 +17,5 @@ class GameLogicTest {
     void intifyDoesntThrow() {
         assertEquals(4, GameLogic.intify("4"));
     }
+
 }
