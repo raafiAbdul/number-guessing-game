@@ -12,7 +12,7 @@ public class PrintOutput {
         System.out.println("3. Hard (3 chances)");
     }
 
-    public static int  chooseDifficulty() {
+    static int  chooseDifficulty() {
         System.out.println("Enter your choise: ");
         return GameLogic.chooseDifficultyLogic();
     }
