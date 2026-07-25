@@ -12,8 +12,16 @@ public class PrintOutput {
         System.out.println("3. Hard (3 chances)");
     }
 
-    static int  chooseDifficulty() {
-        System.out.println("Enter your choice: ");
-        return GameLogic.chooseDifficultyLogic();
+    static void chooseDifficulty() {
+        System.out.println("Enter your difficulty of choice: ");
+        String difficultyString = "";
+        switch(GameLogic.chooseDifficultyLogic()) {
+            case 1 -> difficultyString = "Easy";
+            case 2 -> difficultyString = "Medium";
+            case 3 -> difficultyString = "Hard";
+        }
+        System.out.println("Great! You have selected the " + difficultyString + " difficulty level.");
+        System.out.println("Let's start the game!");
     }
+
 }

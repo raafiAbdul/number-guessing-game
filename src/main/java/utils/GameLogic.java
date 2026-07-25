@@ -6,12 +6,12 @@ public class GameLogic {
 
     private static final Scanner input = new Scanner(System.in);
 
-    public static int intify(String string) throws NumberFormatException {
+    static int intify(String string) throws NumberFormatException {
         String firstWord = string.split("\s")[0].toLowerCase();
         return Integer.parseInt(firstWord);
     }
 
-    public static int chooseDifficultyLogic() {
+    static int chooseDifficultyLogic() {
         int difficulty = 1;
         boolean acceptable = false;
         while(!acceptable) {
@@ -29,12 +29,8 @@ public class GameLogic {
     public static void gameLoop() {
         boolean exit = false;
         while(!exit) {
-            int difficulty = PrintOutput.chooseDifficulty();
-            switch(difficulty) {
-                case 1: {
+            PrintOutput.chooseDifficulty();
 
-                }
-            }
         }
     }
 
