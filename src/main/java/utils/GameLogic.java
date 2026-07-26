@@ -45,7 +45,6 @@ public class GameLogic {
             int guessInt;
             boolean isWon = false;
             for(int attempts = 1; attempts <= chances; attempts++) {
-                System.out.println(randomNum);
                 System.out.print("Enter your guess: ");
                 guessInt = checkIfValid(101, "guess");
                 if(guessInt == randomNum) {
@@ -63,7 +62,7 @@ public class GameLogic {
             }
 
             if(highscore != 100 && isWon) {
-                System.out.println("New high score: " + highscore + "!");
+                System.out.println("High score: " + highscore);
             }
 
             char playAgainChar;
