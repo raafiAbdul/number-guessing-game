@@ -45,8 +45,4 @@ public class PrintOutput {
             System.out.println("Incorrect! The number is less than " + guess + ".");
         }
     }
-
-    static void playAgainScreen() {
-        System.out.print("Do you want to play again (y/N): ");
-    }
 }
