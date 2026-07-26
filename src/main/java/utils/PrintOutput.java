@@ -32,7 +32,7 @@ public class PrintOutput {
             }
         }
         System.out.println("Great! You have selected the " + difficultyString + " difficulty level.");
-        System.out.println("Let's start the game!");
+        System.out.println("Let's start the game!\n");
         return chances;
     }
 
@@ -46,4 +46,7 @@ public class PrintOutput {
         }
     }
 
+    static void playAgainScreen() {
+        System.out.print("Do you want to play again (y/N): ");
+    }
 }

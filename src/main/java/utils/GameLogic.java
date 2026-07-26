@@ -33,7 +33,7 @@ public class GameLogic {
     // this accepts user input and returns difficulty level
     static int chooseDifficultyLogic() {
         int difficulty = 1;
-        checkIfValid(4, "option");
+        difficulty = checkIfValid(4, "option");
         return difficulty;
     }
 
@@ -42,22 +42,39 @@ public class GameLogic {
         boolean exit = false;
         while(!exit) {
             PrintOutput.printWelcomeMessage();
-            int chances = PrintOutput.chooseDifficulty(),
-                    randomNum = (int)(Math.random()*99) + 1,
-                    guessInt = 0;
-            for(int attempts = 1; attempts >= chances + 1; attempts++) {
+            int chances = PrintOutput.chooseDifficulty();
+            int randomNum = (int)(Math.random()*99) + 1;
+            int guessInt = 0;
+            boolean isWon = false;
+            for(int attempts = 1; attempts <= chances; attempts++) {
+                System.out.print("Enter your guess: ");
                 guessInt = checkIfValid(101, "guess");
                 if(guessInt == randomNum) {
                     PrintOutput.guessOutput(true, attempts, guessInt, randomNum);
                     if(highscore < attempts)
                         highscore = attempts;
+                    isWon = true;
                     break;
                 }
                 else PrintOutput.guessOutput(false, attempts, guessInt, randomNum);
             }
 
+            if(!isWon) {
+                System.out.println("You've ran out of guesses");
+            }
+
+            char playAgainChar = 'z';
+            do {
+                PrintOutput.playAgainScreen();
+                playAgainChar = input.nextLine().toLowerCase().charAt(0);
+            } while(playAgainChar != 'y' && playAgainChar != 'n');
+
+            if(playAgainChar == 'n') {
+                exit = true;
+            }
 
         }
+        System.out.println("Thanks for playing!");
     }
 
 
