@@ -12,16 +12,38 @@ public class PrintOutput {
         System.out.println("3. Hard (3 chances)");
     }
 
-    static void chooseDifficulty() {
-        System.out.println("Enter your difficulty of choice: ");
+    static int chooseDifficulty() {
+        System.out.print("Enter your difficulty of choice: ");
         String difficultyString = "";
-        switch(GameLogic.chooseDifficultyLogic()) {
-            case 1 -> difficultyString = "Easy";
-            case 2 -> difficultyString = "Medium";
-            case 3 -> difficultyString = "Hard";
+        int level = GameLogic.chooseDifficultyLogic();
+        int chances = 10;
+        switch(level) {
+            case 1 -> {
+                difficultyString = "Easy";
+                chances = 10;
+            }
+            case 2 -> {
+                difficultyString = "Medium";
+                chances = 5;
+            }
+            case 3 -> {
+                difficultyString = "Hard";
+                chances = 3;
+            }
         }
         System.out.println("Great! You have selected the " + difficultyString + " difficulty level.");
         System.out.println("Let's start the game!");
+        return chances;
+    }
+
+    static void guessOutput(boolean isCorrect, int attempts, int guess, int randomNum) {
+        if(isCorrect)
+            System.out.println("Congratulations! You guessed the correct number in " + attempts + " attempts.");
+        else if(randomNum > guess) {
+            System.out.println("Incorrect! The number is greater than " + guess + ".");
+        } else if(randomNum < guess){
+            System.out.println("Incorrect! The number is less than " + guess + ".");
+        }
     }
 
 }
